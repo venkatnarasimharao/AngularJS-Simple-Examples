@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ctrl">
+<style type="text/css">
+	button{
+		padding:20px;
+		margin: 20px;
+		border-radius: 20px;
+
+	}
+</style>
+<head>
+	<title>ng show example</title>
+</head>
+<body>
+<h1 ng-repeat="x in array">
+	{{x}}
+	<button ng-show="$first" ng-click="clickMe(x)">First</button>
+
+	<button ng-show="$middle" ng-click="clickMe(x)">middle</button>
+
+	<button ng-show="$even" ng-click="clickMe(x)">odd</button>
+
+	<button ng-show="$odd" ng-click="clickMe(x)">even</button>
+
+	<button ng-show="$last" ng-click="clickMe(x)">Last</button>
+
+</h1>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module('app',[]);
+
+	app.controller('ctrl',function($scope) {
+		$scope.array=[10,20,30,40,50,60,70,80,90];
+		$scope.clickMe=function(a) {
+			alert(a);
+		};
+	});
+</script>
+</body>
+</html>

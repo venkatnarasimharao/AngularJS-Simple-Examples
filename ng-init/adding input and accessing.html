@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ctrl">
+<style type="text/css">
+	div{
+		margin:50px;
+	}	
+</style>
+<div>
+<label>User_Name: </label>&emsp;&emsp;&emsp;&emsp;
+<input type="text" ng-model="login_details.User_Name">&emsp;&emsp;
+
+
+<label>User_Password: </label>&emsp;&emsp;&emsp;&emsp;
+<input type="password" ng-model="login_details.User_Password">
+
+<br><br>
+
+<button class="btn btn-success" ng-click="login()">Login</button>
+
+
+
+
+<div ng-init="db_user='admin';
+			db_password='admin';
+			database='ng9am';
+			emp=[{'p_id':111,'p_name':'p_one','p_sal':10000},
+			{'p_id':222,'p_name':'p_two','p_sal':20000},
+			{'p_id':333,'p_name':'p_three','p_sal':30000},
+			{'p_id':444,'p_name':'p_four','p_sal':40000},
+			{'p_id':555,'p_name':'p_five','p_sal':50000}]">
+
+	<h1>{{db_user}}</h1>
+	<h1>{{db_password}}</h1>
+	<h1>{{database}}</h1>
+	
+</div>
+<table border="3" cellspacing="10px" cellpadding="10px" align="center"
+		style="font-size: 30px; text-align: center; color: red; border-collapse:collapse;">
+		<thead style="background-color: green">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Cost</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in emp">
+				<td>{{x.p_id}}</td>
+				<td>{{x.p_name}}</td>
+				<td>{{x.p_sal}}</td>
+			</tr>
+		</tbody>
+	
+</table>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+	app.controller("ctrl",function($scope) {
+		$scope.login_details={};
+		$scope.login=function() {
+				if ($scope.login_details.User_Name=="admin" && $scope.login_details.User_Password=="admin") {
+					alert("login success");
+				}
+				else{
+					alert("login Fail");
+				}
+		};
+	});
+</script>
+</html>

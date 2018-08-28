@@ -1,0 +1,17 @@
+<!-- this directive is used to iterate the elements of array -->
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ctrl">
+<h1 ng-repeat="x in array">
+	{{x}} - {{$first}} - {{$last}} - {{$middle}} - {{$even}} - {{$odd}}
+</h1>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+
+	app.controller("ctrl",function($scope) {
+		$scope.array=[10,20,30,40,50,60,70,80,90];
+	});
+</script>
+</html>

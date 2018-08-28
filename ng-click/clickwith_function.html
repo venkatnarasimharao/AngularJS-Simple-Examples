@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ctrl">
+
+<label>User_Name: </label>&emsp;&emsp;&emsp;&emsp;
+<input type="text" ng-model="login_details.User_Name">&emsp;&emsp;
+
+
+<label>User_Password: </label>&emsp;&emsp;&emsp;&emsp;
+<input type="password" ng-model="login_details.User_Password">
+
+<br><br>
+
+<button ng-click="login()">Login</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+	app.controller("ctrl",function($scope) {
+		$scope.login_details={};
+		$scope.login=function() {
+				if ($scope.login_details.User_Name=="admin" && $scope.login_details.User_Password=="admin") {
+					alert("Login Success");
+				}
+				else{
+					alert("login Fail");
+				}
+		};
+	});
+</script>
+</html>
