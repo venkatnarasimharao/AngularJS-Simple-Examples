@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<div ng-app="app" ng-controller="ctrl_one">
+	<h1>{{var_one}}</h1>
+</div>
+<div ng-controller="ctrl_two" id="num">
+	<h1>{{var_two}}</h1>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script>
+	var app=angular.module("app",[]);
+
+	app.controller("ctrl_one",function($scope){
+			$scope.var_one="i am from controller   1......!";
+	});
+	app.controller("ctrl_two",function($scope){
+			$scope.var_two="i am from controller  2......!";
+	});
+
+	angular.bootstrap((document.getElementById("num")),["app"]);
+</script>
+
+</html>
