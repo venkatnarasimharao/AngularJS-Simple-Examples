@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<h1>{{var_two}}</h1>
+
+	<div ng-controller="ctrl_one">
+		<h1>{{var_two}}</h1>
+	</div>
+	<div ng-controller="ctrl_two">
+		<h1>{{var_one}}</h1>
+	</div>
+<h1>{{var_one}}</h1>   <!-- due to $rootscope value can be accessed any where in the "ng-app" -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+	var app=angular.module("app",[]);
+
+	app.controller("ctrl_one",function($rootScope){
+		$rootScope.var_one="i am from controller one.......!";
+	});
+
+	app.controller("ctrl_two",function($rootScope){
+		$rootScope.var_two="i am from controller two.......!";
+	});
+</script>
+</html>
