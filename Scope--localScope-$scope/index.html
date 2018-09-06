@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">   <!--is it possible to access local scope variable any where 
+				yes using public var <- it can access local variable  -->
+<h1>{{myFun()}}</h1>
+<div ng-controller="ctrl">
+	<h1>{{myFun()}}</h1>
+</div>
+<h1>{{myFun()}}</h1>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+	var app=angular.module('app',[]);
+	app.controller("ctrl",function ($rootScope,$scope) {
+		$scope.var_one=" myFun returnning variable one using rootScope so it can be access any where..................!";
+		$rootScope.myFun=function(){
+				return $scope.var_one;
+		};
+	});
+</script>
+</html>
