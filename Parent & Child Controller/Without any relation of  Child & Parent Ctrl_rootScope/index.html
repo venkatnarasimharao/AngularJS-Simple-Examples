@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<div ng-controller="ctrl_one">
+	<input type="text" ng-model="uNmae">
+	<button ng-click="ClickMe(uNmae)">Send</button>
+</div>
+<div ng-controller="ctrl_two">
+	<h1>{{data}}</h1>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+
+	app.controller("ctrl_one",function($scope) {
+		$scope.ClickMe=function(arg1) {
+			$scope.myFun(arg1);
+		};
+	});
+
+	app.controller("ctrl_two",function($rootScope,$scope) {
+		$rootScope.myFun=function(arg1) {
+			$scope.data=arg1;
+		};
+	});
+</script>
+</html>
