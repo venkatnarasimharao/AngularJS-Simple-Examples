@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<div ng-controller="ctrl_one">
+	<input type="text" ng-model="uName">
+	<button ng-click="send(uName)">Send</button>
+</div>
+<br><br><br>
+<div ng-controller="ctrl_two">
+	<button ng-click="read()">Read</button>
+	<br><br><br>
+	<h1>{{data}}</h1>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+
+	app.service("myservice",function() {
+		this.myVar='';
+		this.setmyVar=function(arg1) {
+			this.myVar=arg1;
+		};
+		this.getmyVar=function() {
+			return this.myVar;
+		};
+	});
+
+	app.controller("ctrl_one",function($scope,myservice) {
+		$scope.send=function(arg1) {
+			myservice.setmyVar(arg1);
+		};
+	});
+	app.controller("ctrl_two",function($scope,myservice) {
+		$scope.read=function() {
+			$scope.data=myservice.getmyVar();
+		};
+	});
+</script>
+</html>
