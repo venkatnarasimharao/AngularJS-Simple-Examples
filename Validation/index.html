@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app>
+<div class="container" style="border: 2px solid blue; border-radius: 20px; ">
+	<form name="myForm">
+		<!-- user name -->
+		<div class="form-group" style="margin-top: 20px; ">
+			<label>User Name</label>
+			<input type="text" name="uname" class="form-control" ng-model="uname" 
+			ng-minlenght="3" ng-maxlenght="6" required>
+			<div ng-if="myForm.uname.$error.required && myForm.uname.$dirty" 
+			class="alert alert-danger">
+				****can't left blank***
+			</div>
+			<div ng-if="myForm.uname.$error.minlenght" class="alert alert-danger">
+				**min 3 characters are required**
+			</div>
+			<div ng-if="myForm.uname.$error.maxlenght" class="alert alert-danger">
+				*** max 6 characters are allowed***
+			</div>
+			<div ng-if="myForm.uname.$valid" class="glyphicon glyphicon-ok">
+			</div>
+		</div>
+		<br><br><br>
+
+		<!-- email validaton -->
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" class="form-control" name="uemail" ng-model="uemail" required>
+			<div ng-if="myForm.uemail.$error.required && myForm.uemail.$dirty" 
+			class="alert alert-danger">
+				** can't left blank**
+			</div>
+			<div ng-if="myForm.uemail.$error.email" class="alert alert-danger">
+				***please enter valid email***
+			</div>
+		</div>
+		<br><br><br>
+
+		<!-- phone number validation -->
+		<div class="form-group">
+			<label>phone</label>
+			<input type="text" class="form-control" name="uphone" ng-model="uphone" required>
+			<div ng-pattern="/^\+?\d{2}[-]?\d{3}[-]?\d{5}$/" required></div>
+			<div ng-if="myForm.uphone.$error.required && myForm.uphone.$dirty" 
+			class="alert alert-danger">
+				***can't left blank***
+			</div>
+			<div ng-if="myForm.uphone.$error.pattern class="alert alert-danger">
+				**enter valid phone number**
+			</div>
+		</div>
+		<br><br><br>
+	</form>
+</div>
+
+<link 
+rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	angular.module("app",[]);
+</script>
+</html>
