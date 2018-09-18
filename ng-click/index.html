@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ctrl">
+<style type="text/css">
+	div{
+		margin:10%;
+	}
+	button{
+		width:150px;
+		height: 100px;
+	}
+</style>
+
+<div>
+<button class="glyphicon glyphicon-plus" ng-click="count=count+1"></button>
+<button class="btn btn-success">{{count}}</button>
+<button class="glyphicon glyphicon-minus" ng-click="count=count-1"></button>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+	app.controller("ctrl",function($scope) {
+		$scope.count=0;
+	});
+</script>
+</html>
