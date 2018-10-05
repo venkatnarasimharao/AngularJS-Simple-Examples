@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>ng-if example two</title>
+</head>
+<body>
+	<label>userName</label>
+<input type="text" ng-model="userName">
+<br><br>
+
+<span ng-if="userName!=null && userName!=''">
+	<label>UserPassword</label>
+	<input type="password" ng-model="upassword">
+</span>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+</body>
+</html>

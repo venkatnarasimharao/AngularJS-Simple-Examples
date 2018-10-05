@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="ctrl1">
+<head>
+	<title>ng-if example</title>
+</head>
+<body>
+<h1 ng-repeat="x in array">
+	<span ng-if="$middle">
+		{{x}}
+	</span>
+</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module('app',[]);
+
+	app.controller('ctrl1',function($scope) {
+		$scope.array=["hello-1","hello-2","hello-3","hello-4","hello-5","hello-6"];
+	});
+</script>
+</body>
+</html>
