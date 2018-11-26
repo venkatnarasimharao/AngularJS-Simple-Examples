@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('MyApp', [])
+        app.controller('MyController', function ($scope, $interval, $filter) {
+            //Initiate the Timer object.
+            $scope.Timer = null;
+ 
+            //Timer start function.
+            $scope.StartTimer = function () {
+                //Set the Timer start message.
+                $scope.Message = "Timer started. ";
+ 
+                //Initialize the Timer to run every 1000 milliseconds i.e. one second.
+                $scope.Timer = $interval(function () {
+                    //Display the current time.
+                    var time = $filter('date')(new Date(), 'HH:mm:ss');
+                    $scope.Message = "Timer Ticked. " + time;
+                }, 1000);
+            };
+ 
+            //Timer stop function.
+            $scope.StopTimer = function () {
+ 
+                //Set the Timer stop message.
+                $scope.Message = "Timer stopped.";
+ 
+                //Cancel the Timer.
+                if (angular.isDefined($scope.Timer)) {
+                    $interval.cancel($scope.Timer);
+                }
+            };
+        });
+    </script>
+    <div ng-app="MyApp" ng-controller="MyController">
+        <div ng-bind = "Message">
+        </div>
+        <br />
+        <input type="button" value="Start Timer" ng-click="StartTimer()" />
+        <input type="button" value="Stop Timer" ng-click="StopTimer()" />
+    </div>
+</body>
+</html>
